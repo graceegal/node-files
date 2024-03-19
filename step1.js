@@ -2,6 +2,9 @@
 
 const fsP = require("fs/promises");
 
+/** Given a path to a text file, read the contents. If it doesn't
+ * exist, throw an error
+ */
 async function cat(path) {
   let contents
   try {

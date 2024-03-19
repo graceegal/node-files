@@ -2,10 +2,9 @@
 
 const fsP = require("fs/promises");
 
-// FIXME: changeisUrl to URL.canParse()
-
-
-//TODO: Doc strings!!
+/** Given a path to a text file, read the contents. If it doesn't
+ * exist, throw an error
+ */
 async function cat(path) {
   try {
     const contents = await fsP.readFile(path, "utf8");
@@ -16,6 +15,9 @@ async function cat(path) {
   }
 }
 
+/** Given a url, log the text response. If the url is not valid, log an error
+ * and exit.
+ */
 async function webCat(url) {
   try {
     const resp = await fetch(url);
@@ -29,7 +31,7 @@ async function webCat(url) {
 
 let path = process.argv[2];
 
-if(isUrl(path)) {
+if(URL.canParse(path)) {
   webCat(path);
 } else {
   cat(path);
