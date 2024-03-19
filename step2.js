@@ -1,7 +1,9 @@
 "use strict";
 
 const fsP = require("fs/promises");
-const isUrl = require("is-url")
+
+// FIXME: changeisUrl to URL.canParse()
+
 
 //TODO: Doc strings!!
 async function cat(path) {
