@@ -77,7 +77,7 @@ async function readPath(path) {
     console.log(await cat(path));
   }
 }
-
+//TODO: refactor functions. Use variables
 checkReadOrWrite();
 
 
