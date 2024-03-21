@@ -30,6 +30,7 @@ async function webCat(url) {
   return await resp.text();
 }
 
+/**  */
 async function write(path, data) {
   try {
     await fsP.writeFile(path, data, "utf8");

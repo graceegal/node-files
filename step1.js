@@ -6,7 +6,7 @@ const fsP = require("fs/promises");
  * exist, throw an error
  */
 async function cat(path) {
-  let contents
+  let contents;
   try {
     contents = await fsP.readFile(path, "utf8"); //limit code inside try block
   } catch (err) {

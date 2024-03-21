@@ -6,26 +6,28 @@ const fsP = require("fs/promises");
  * exist, throw an error
  */
 async function cat(path) {
+  let contents;
   try {
-    const contents = await fsP.readFile(path, "utf8");
-    console.log("File Contents:", contents);
+    contents = await fsP.readFile(path, "utf8");
   } catch (err) {
     console.log(`Error Reading ${path}: \n ${err}`)
     process.exit(1);
   }
+  console.log("File Contents:", contents);
 }
 
 /** Given a url, log the text response. If the url is not valid, log an error
  * and exit.
  */
 async function webCat(url) {
+  let resp;
   try {
-    const resp = await fetch(url);
-    console.log(await resp.text())
+    resp = await fetch(url);
   } catch (err) {
     console.log(`Error Fetching: ${url}: \n ${err}`)
     process.exit(1);
   }
+  console.log(await resp.text());
 }
 
 
